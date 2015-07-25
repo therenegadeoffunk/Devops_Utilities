@@ -1,0 +1,7 @@
+#HTTP requests
+
+tcpdump -s 1500 -SvnAi any tcp and port 8080 and dst webserver.example.net and "tcp[tcpflags] & (tcp-push) != 0"
+
+#Capture file rollover
+
+sudo tcpdump -w testcapture.pcap -W 200 -C 20 -SvnAi eth2 tcp and port 80
