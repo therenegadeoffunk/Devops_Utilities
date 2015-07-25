@@ -1,3 +1,31 @@
+#Basic eth0 dump
+
+tcpdump -i lo
+
+# Specific host and internet traffic
+
+tcpdump -i lo tcp and host localhost
+
+# Limit output (number of lines, and no hostnames)
+
+tcpdump -i lo -nn -c 10 tcp and host localhost
+
+# Limit amount of data captured per packet. Ubuntu default is 65535. Often we don't need so much.
+
+tcpdump -i lo -s96 #Capture only 96 bytes per-packet
+
+# Specifying ports and writing to a file
+
+tcpdump -i eth0 port 53 -w /tmp/output
+
+# Read the capture file with less
+
+tcpdump -r /tmp/output | less
+
+# Compound expressions
+
+tcpdump -i eth0 -n "host 10.0.2.15 and (port 80 or port 443)"
+
 #HTTP requests
 
 tcpdump -s 1500 -SvnAi any tcp and port 8080 and dst webserver.example.net and "tcp[tcpflags] & (tcp-push) != 0"
