@@ -8,6 +8,14 @@ traceroute google.com
 
 traceroute -T google.com # May need root privilege
 
+# ICMP scan
+
+traceroute -I google.com
+
+# UDP with specific port scan
+
+tracerout -U -p 53 google.com
+
 # Skip DNS lookup
 
 traceroute -n google.com
