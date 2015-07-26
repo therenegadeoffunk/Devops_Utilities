@@ -1,0 +1,13 @@
+# Note that traceroute6 is often installed by default instead of traceroute.
+
+# Basic
+
+traceroute google.com
+
+# TCP scan
+
+traceroute -T google.com # May need root privilege
+
+# Skip DNS lookup
+
+traceroute -n google.com

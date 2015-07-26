@@ -1,0 +1,23 @@
+# Basic
+
+nmap 127.0.0.1
+
+# More output
+
+nmap -vv 127.0.0.1
+
+# Scan a network and check to see if a range of hosts are up (PING scan)
+
+nmap -sP 192.168.1.0/24
+
+# Skip host discovery and use SYN scan
+
+nmap -sS -Pn 127.0.0,1
+
+# OS and version detection
+
+nmap -sS -A 127.0.0.1
+
+# Fast scan with a port range and no DNS lookup
+
+nmap -sS -T5 -p 0-300 -n 127.0.0.1
