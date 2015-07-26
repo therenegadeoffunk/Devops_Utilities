@@ -1,0 +1,15 @@
+# Instead of this...
+
+location / {
+    proxy_pass http://service-1234567890.us-east-1.elb.amazonaws.com;
+}
+
+# Do this
+
+resolver 172.16.0.23;
+set $upstream_endpoint http://service-1234567890.us-east-1.elb.amazonaws.com;
+location / {
+    proxy_pass $upstream_endpoint;
+}
+
+# Be aware of uri forwarding differences if the location is not just "/" (see references)
