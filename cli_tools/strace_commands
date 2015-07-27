@@ -25,3 +25,7 @@ strace -r ls
 # Generate report
 
 strace -c ls
+
+# Follow child processes and output each to a file
+
+strace -f -ff ls
