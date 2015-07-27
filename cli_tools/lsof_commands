@@ -1,0 +1,27 @@
+# Basic
+
+lsof
+
+# By process
+
+lsof -p <pid>
+
+# By user
+
+lsof -u <name>
+
+# By file descriptor
+
+lsof -d <number>
+
+# By internet protocol
+
+lsof -i<protocol>
+
+# Avoid kernel functions that may block
+
+lsof -b
+
+# Don't convert network numbers to hostnames and don't convert user ID numbers to login names
+
+lsof -n -l

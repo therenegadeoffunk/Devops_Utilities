@@ -7,6 +7,7 @@ https://danielmiessler.com/study/tcpdump
 https://www.digitalocean.com/community/tutorials/how-to-use-traceroute-and-mtr-to-diagnose-network-issues
 https://medium.com/@ValdikSS/detecting-vpn-and-its-configuration-and-proxy-users-on-the-server-side-1bcc59742413
 http://www.thegeekstuff.com/2011/11/strace-examples/
+http://www.dedoimedo.com/computers/lsof.html
 
 DEBUGGING PROCEDURES
 
