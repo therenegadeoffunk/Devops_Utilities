@@ -1,0 +1,27 @@
+# Standard
+
+strace ls
+
+# Trace specific system calls
+
+strace -e open ls
+
+# Save output to a file
+
+strace -o output.txt ls
+
+# Execute on a running process by giving a PID
+
+strace -p 2335 -o output.txt
+
+# Timestamp each call
+
+strace -t -e ls
+
+# Relative time for each call
+
+strace -r ls
+
+# Generate report
+
+strace -c ls
