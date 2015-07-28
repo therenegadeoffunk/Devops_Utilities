@@ -8,6 +8,8 @@ https://www.digitalocean.com/community/tutorials/how-to-use-traceroute-and-mtr-t
 https://medium.com/@ValdikSS/detecting-vpn-and-its-configuration-and-proxy-users-on-the-server-side-1bcc59742413 <br>
 http://www.thegeekstuff.com/2011/11/strace-examples/ <br>
 http://www.dedoimedo.com/computers/lsof.html <br>
+http://xmodulo.com/how-to-capture-and-replay-network-traffic-on-linux.html <br>
+https://stackoverflow.com/questions/3510275/sorting-in-bash <br>
 
 DEBUGGING PROCEDURES
 

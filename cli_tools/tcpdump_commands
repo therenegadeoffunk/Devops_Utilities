@@ -32,4 +32,14 @@ tcpdump -s 1500 -SvnAi any tcp and port 8080 and dst webserver.example.net and "
 
 #Capture file rollover
 
-sudo tcpdump -w testcapture.pcap -W 200 -C 20 -SvnAi eth2 tcp and port 80
+tcpdump -w testcapture.pcap -W 200 -C 20 -SvnAi eth2 tcp and port 80
+
+# Replaying traffic in five steps -- needs tcprewrite and tcpreplay
+# 1. Capture traffic to file, 2. Rewrite destination IP and MAC addresses
+# 3. Rewrite source IP and MAC addresses, 4. Update checksums, 5. Replay
+
+tcpdump -w dump.pcap -i eth0 
+tcprewrite --infile=dump.pcap --outfile=temp1.pcap --dstipmap=0.0.0.0/0:192.168.1.20 --enet-dmac=E0:DB:55:CC:13:F1
+tcprewrite --infile=temp1.pcap --outfile=temp2.pcap --srcipmap=0.0.0.0/0:192.168.1.10 --enet-smac=84:A5:C8:BB:58:1A
+tcprewrite --infile=temp2.pcap --outfile=final.pcap --fixcsum 
+sudo tcpreplay --intf1=eth0 final.pcap   

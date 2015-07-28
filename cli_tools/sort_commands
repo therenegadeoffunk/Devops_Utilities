@@ -1,0 +1,3 @@
+# Examples
+
+cut -f <column_number> <filename> | sort | uniq -c | awk '{ print $2" "$1}' | sort
