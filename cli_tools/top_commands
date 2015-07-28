@@ -1,0 +1,23 @@
+# Basic
+
+top
+
+# Once the top report comes up there are numerous commands you can use to get more precise information.
+
+# Sort output
+
+SHIFT+O --> field letter
+
+# 'a' sorts by PID, 'e' by username, 'K' by CPU usage, 'n' by memory usage, etc. etc.
+
+# z - highlight process
+
+# c - display absolute path of process
+
+# k - kill process
+
+# SHIFT+W - save top report to /root/.toprc
+
+# You can display processes by user as follows:
+
+top -u username
