@@ -2,13 +2,11 @@
 
 top
 
-# Once the top report comes up there are numerous commands you can use to get more precise information.
+# Once the top report comes up there are numerous commands you can use to get more precise information
+
+# Easiest thing is to just press '?' to get the help screen
 
 # Sort output
-
-SHIFT+O --> field letter
-
-# 'a' sorts by PID, 'e' by username, 'K' by CPU usage, 'n' by memory usage, etc. etc.
 
 # z - highlight process
 

@@ -1,0 +1,31 @@
+# Basic
+
+netstat
+
+# Check all ports and pipe into 'more'
+
+netstat -a | more
+
+# Check for listening tcp ports, don't resolve host / usernames, give PID
+
+netstat -plnt
+
+# List all udp ports
+
+netstat -au
+
+# Show stats for protocols
+
+netstat -s
+
+# Display kernel routing information
+
+netstat -r
+
+# List network interfaces
+
+netstat -i
+
+# Find non supportive Address families
+
+netstat --verbose
