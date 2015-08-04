@@ -12,6 +12,8 @@ http://xmodulo.com/how-to-capture-and-replay-network-traffic-on-linux.html <br>
 https://stackoverflow.com/questions/3510275/sorting-in-bash <br>
 http://www.tecmint.com/12-top-command-examples-in-linux/ <br>
 http://www.thegeekstufff.com/2010/03/netstat-command-examples/ <br>
+http://www.bashoneliners.com/ <br>
+http://www.thegeekstuff.com/2010/10/dd-command-examples/ <br>
 
 DEBUGGING PROCEDURES
 
@@ -20,6 +22,7 @@ http://wiki.nginx.org/Debugging <br>
 https://httpd.apache.org/dev/debugging.html <br>
 http://redis.io/topics/debugging <br>
 http://balodeamit.blogspot.com/2013/10/detecting-and-mitigating-ddos-attacks.html <br>
+https://www.thomas-krenn.com/en/wiki/Linux_I/O_Performance_Tests_using_dd
 
 DOCUMENTATION
 

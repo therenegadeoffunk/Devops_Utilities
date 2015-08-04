@@ -1,0 +1,26 @@
+# Backup entire hard disk
+
+dd if=/dev/sda of=/dev/sdb
+
+# Create an image of a hard disk
+
+dd if=/dev/hda of=~/hdadisk.img
+
+# Restore a hard drive using an image
+
+dd if=hdadisk.img of=/dev/hdb
+
+# Backup a partition
+
+dd if=/dev/hda1 of=~/partition1.img
+
+# dd can be useful for performance testing.
+# We can use the 'sync' and 'direct' arguments to get around OS caching of writes
+
+# Here is a test where we measure the speed for writing one gig of data withc OS caching intact
+
+dd if=/dev/zero of=/root/testfile bs=1G count=1 
+
+# Here we do the same thing but disable caching. It should take longer
+
+dd if=/dev/zero of=/root/testfile bs=1G count=1 oflag=direct
