@@ -1,0 +1,46 @@
+SPARK NOTES
+
+Basics
+
+What is Spark: Distributed computing framework built in Scala
+Scala: Drivers for other languages, but Scala is best. Learn Scala. Spark Shell!
+RDD: Resilient Distributed Datasets. Immutable. Basic building block.
+RDD: Many ways to create them. Remember transformations (lazy) and actions
+Cassandra: Read, write, process as needed. Avoid antipatterns! Don't do unnecessary work
+Spark Optimizations: Broadcast Variables, Accumulator Variables, RDD Persistence (cache)
+
+Key-Value Pairs
+
+Tuple RDD’s with a key and a value. Can be any data types Special APIs.
+Aggregation – reduceByKey, foldByKey, combineByKey, countByKey
+Grouping – groupByKey, cogroup, groupWith, sortByKey (expensive!)
+Joins – join, leftOuterJoin, rightOuterJoin, fullOuterJoin, Set Operations –union,intersection,difference
+
+Partioning
+
+Important optimization, Partion is fundamental unit, HashPartioner, RangePartioner, None, Custom
+Affected by available resources, external data, transformations, properties of RDDs
+defaultParallelism is number of cores, Number of Partitons = Number of tasks (per stage)
+Default Behavior: Partitioner=None, sc.defaultParallelism Cassandra or HDFS divides by 64 M
+Default Transformation: Partitioner=None (preservers parent), Each transform has specific rule
+Default Key-Based: Use various partitioners (Hash), usually size is same as parent except joins
+
+Partition Tuning 
+
+Set partition size and which partitioner. You will need to tweak this! Don’t shuffle or shuffle early
+Too few partitions: Less concurrency, data skew, memory pressure, longer failure recovery
+Too many partitions: Scheduling takes long, lineage information maintenance
+General Recommendation: 100 – 10,000, 2x number of cores, tasks over 100+ ms to complete
+Which Partitioner?: Key-Value pair operations. Custom partitioners are also a thing
+How to Tune: Application settings, Operation parameters (numTasks), Repartitioning transformations
+How to Tune: Explicit repartition(numTasks), coalesce(numPartitions), partitionBy(Partitioner)
+Data shuffling: transferring data to achieve same key same partition and desired numPartitions
+Data shuffling: Methods and Key-Based, Hash-based became Sort-based (file reduce since 1.2, trivia)
+Data shuffling: Expensive! Disk IO, Network traffic, Partitioning, Sorting, Serialization, Compression
+
+Spark Cassandra Connector
+
+Count: Do the work in Cassandra instead of Spark (No other spark tasks). CassandraCount()
+GroupByKey: Be aware of Cassandra keys and clustering – spanBykey and spanBy
+Joining Tables: Joins now in Cassandra!, joinWithCassandraTable() and on(), start lower cardinality
+Cassandra-aware partioning: repartionByCassandraReplica() – reduce network traffic
